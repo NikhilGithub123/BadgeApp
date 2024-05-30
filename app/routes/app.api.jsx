@@ -158,7 +158,7 @@ function BadgeProductMapping(props) {
 
   const { label, name, ...rest } = props;
   const [selectedPositionToDisplay, setSelectedPositionToDisplay] = useState("top-left");
-  const positionToDisplay = ["top-left", "center-left", "bottom-left", "top-middle", "center-middle", "bottom-middle", "top-right", "center-right", "bottom-right"]
+  const positionToDisplay = ["top-left", "middle-left", "bottom-left", "top-center", "middle-center", "bottom-center", "top-right", "middle-right", "bottom-right"]
   const [enableHover, setEnableHover] = useState(false);
 
 
@@ -170,14 +170,6 @@ function BadgeProductMapping(props) {
   const [isHomePageChecked, setIsHomePageChecked] = useState(false);
   const [isCartPageChecked, setIsCartPageChecked] = useState(false);
 
-  /*
-  function handleHover() {
-    if (enableHover === true)
-      setEnableHover(true);
-    else
-      setEnableHover(false);
-  }
-*/
   const handleHover = useCallback((enableHover, setEnableHover) => {
     return() => {
       if(enableHover)
