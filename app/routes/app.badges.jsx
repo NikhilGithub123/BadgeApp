@@ -13,7 +13,8 @@ export async function loader({ request, params }) {
     const { session } = await authenticate.admin(request);
     const { shop } = session;
     console.log("shopify ", shopify);
-    console.log("shopify theme list ", shopify.theme.list());
+    const theme = new admin.rest.resources.Theme({session: session});
+    console.log("shopify theme list ", theme);
 
     const currentBadges = await getBadges(shop);
     return { currentBadges, shop };
