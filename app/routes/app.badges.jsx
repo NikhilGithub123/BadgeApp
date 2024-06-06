@@ -2,7 +2,7 @@ import db from "../db.server";
 import { json } from '@remix-run/node'
 import { getBadges } from "../app.server";
 import { authenticate } from "../shopify.server";
-import { shopify } from "../shopify.server";
+import  shopify  from "../shopify.server";
 import React, { useState } from 'react';
 import { useLoaderData, useNavigate, useSubmit } from "@remix-run/react"
 import { EditIcon, DeleteIcon, ViewIcon, HideIcon } from '@shopify/polaris-icons';
