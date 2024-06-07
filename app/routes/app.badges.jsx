@@ -12,13 +12,13 @@ import { Page, Banner, Button, BlockStack, InlineStack, IndexTable, IndexFilters
 export async function loader({ request, params }) {
     const { admin, session } = await authenticate.admin(request);
     const { shop } = session;
+    const currentBadges = await getBadges(shop);
     console.log("shopify ", shopify);
     const theme =  await admin.rest.resources.Theme.all({
         session: session,
       });
     console.log("shopify theme list ", theme);
 
-    const currentBadges = await getBadges(shop);
     return { currentBadges, shop };
 }
 
