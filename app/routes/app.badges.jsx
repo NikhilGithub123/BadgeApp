@@ -10,10 +10,10 @@ import { Page, Banner, Button, BlockStack, InlineStack, IndexTable, IndexFilters
 
 
 export async function loader({ request, params }) {
-    const { session } = await authenticate.admin(request);
+    const { admin, session } = await authenticate.admin(request);
     const { shop } = session;
     console.log("shopify ", shopify);
-    const theme = new authenticate.admin.rest.resources.Theme({session: session});
+    const theme = new admin.rest.resources.Theme({session: session});
     console.log("shopify theme list ", theme);
 
     const currentBadges = await getBadges(shop);
