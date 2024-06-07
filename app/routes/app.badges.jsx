@@ -13,7 +13,9 @@ export async function loader({ request, params }) {
     const { admin, session } = await authenticate.admin(request);
     const { shop } = session;
     console.log("shopify ", shopify);
-    const theme = new admin.rest.resources.Theme({session: session});
+    const theme =  await admin.rest.resources.Theme.all({
+        session: session,
+      });
     console.log("shopify theme list ", theme);
 
     const currentBadges = await getBadges(shop);
