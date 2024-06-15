@@ -2,7 +2,6 @@ import db from "../db.server";
 import { json } from '@remix-run/node'
 import { getBadges } from "../app.server";
 import { authenticate } from "../shopify.server";
-import  shopify  from "../shopify.server";
 import React, { useState } from 'react';
 import { useLoaderData, useNavigate, useSubmit } from "@remix-run/react"
 import { EditIcon, DeleteIcon, ViewIcon, HideIcon } from '@shopify/polaris-icons';
@@ -13,6 +12,7 @@ export async function loader({ request, params }) {
     const { admin, session } = await authenticate.admin(request);
     const { shop } = session;
     const currentBadges = await getBadges(shop);
+    /*
     console.log("admin ", admin);
     console.log("admin.rest ", admin.rest);
     console.log("admin.rest.resources ", admin.rest.resources);
@@ -22,7 +22,7 @@ export async function loader({ request, params }) {
         session: session,
       });
     console.log("shopify theme list ", theme);
-
+*/
     return { currentBadges, shop };
 }
 
